@@ -3,9 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo List</title>
 </head>
 <body>
-    
+
+<div class="app">
+  <header class="app-header">
+    <h1>Todo List</h1>
+    <p>Organize your tasks efficiently</p>
+  </header>
+
+  <nav class="project-nav">
+    <button class="project-tab active">Default</button>
+    <button class="project-tab">Work</button>
+    <button class="project-tab">Personal</button>
+  </nav>
+
+  <div class="main-content">
+    <aside class="sidebar">
+      <h2>Projects</h2>
+      <ul class="project-list">
+        <li class="active">
+          Default
+          <span class="todo-count">3</span>
+        </li>
+        <li>
+          Work
+          <span class="todo-count">5</span>
+        </li>
+        <li>
+          Personal
+          <span class="todo-count">2</span>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="todo-list-section">
+      <div class="todo-list-header">
+        <h2>Default</h2>
+        <button class="btn btn-primary">+ Add Todo</button>
+      </div>
+
+      <div class="todo-card">
+        <input type="checkbox" class="todo-checkbox">
+        <div class="todo-body">
+          <div class="todo-title">Learn JavaScript</div>
+          <div class="todo-description">Study modules and classes</div>
+          <div class="todo-meta">
+            <span class="todo-date">Due: 2026-09-10</span>
+            <span class="todo-priority high">High</span>
+          </div>
+        </div>
+        <div class="todo-actions">
+          <button class="btn btn-ghost" title="Edit">&#9998;</button>
+          <button class="btn btn-ghost" title="Delete">&#10005;</button>
+        </div>
+      </div>
+
+      <div class="todo-card completed">
+        <input type="checkbox" class="todo-checkbox" checked>
+        <div class="todo-body">
+          <div class="todo-title">Read documentation</div>
+          <div class="todo-description">Go through MDN guides</div>
+          <div class="todo-meta">
+            <span class="todo-date">Due: 2026-09-08</span>
+            <span class="todo-priority medium">Medium</span>
+          </div>
+        </div>
+        <div class="todo-actions">
+          <button class="btn btn-ghost" title="Edit">&#9998;</button>
+          <button class="btn btn-ghost" title="Delete">&#10005;</button>
+        </div>
+      </div>
+
+      <div class="todo-card">
+        <input type="checkbox" class="todo-checkbox">
+        <div class="todo-body">
+          <div class="todo-title">Set up project build</div>
+          <div class="todo-description">Configure webpack and loaders</div>
+          <div class="todo-meta">
+            <span class="todo-date">Due: 2026-09-15</span>
+            <span class="todo-priority low">Low</span>
+          </div>
+        </div>
+        <div class="todo-actions">
+          <button class="btn btn-ghost" title="Edit">&#9998;</button>
+          <button class="btn btn-ghost" title="Delete">&#10005;</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="modal-overlay">
+  <div class="modal">
+    <h3>New Todo</h3>
+    <form>
+      <div class="form-group">
+        <label for="todo-title">Title</label>
+        <input type="text" id="todo-title" placeholder="Enter title">
+      </div>
+      <div class="form-group">
+        <label for="todo-description">Description</label>
+        <textarea id="todo-description" placeholder="Enter description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="todo-date">Due Date</label>
+        <input type="date" id="todo-date">
+      </div>
+      <div class="form-group">
+        <label for="todo-priority">Priority</label>
+        <select id="todo-priority">
+          <option value="high">High</option>
+          <option value="medium" selected>Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost">Cancel</button>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 </body>
 </html>
