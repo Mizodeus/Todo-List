@@ -14,85 +14,23 @@
   </header>
 
   <nav class="project-nav">
-    <button class="project-tab active">Default</button>
-    <button class="project-tab">Work</button>
-    <button class="project-tab">Personal</button>
+    <div id="project-tabs"></div>
+    <div class="project-toolbar">
+      <button type="button" class="btn-delete-project" id="delete-project">&#10005; Delete Project</button>
+      <form class="project-create" id="project-form">
+        <input type="text" id="project-name" placeholder="Project name" hidden>
+        <button type="button" class="btn-add-project" id="add-project">+ New Project</button>
+      </form>
+    </div>
   </nav>
 
-  <div class="main-content">
-    <aside class="sidebar">
-      <h2>Projects</h2>
-      <ul class="project-list">
-        <li class="active">
-          Default
-          <span class="todo-count">3</span>
-        </li>
-        <li>
-          Work
-          <span class="todo-count">5</span>
-        </li>
-        <li>
-          Personal
-          <span class="todo-count">2</span>
-        </li>
-      </ul>
-    </aside>
-
-    <section class="todo-list-section">
-      <div class="todo-list-header">
-        <h2>Default</h2>
-        <button class="btn btn-primary">+ Add Todo</button>
-      </div>
-
-      <div class="todo-card">
-        <input type="checkbox" class="todo-checkbox">
-        <div class="todo-body">
-          <div class="todo-title">Learn JavaScript</div>
-          <div class="todo-description">Study modules and classes</div>
-          <div class="todo-meta">
-            <span class="todo-date">Due: 2026-09-10</span>
-            <span class="todo-priority high">High</span>
-          </div>
-        </div>
-        <div class="todo-actions">
-          <button class="btn btn-ghost" title="Edit">&#9998;</button>
-          <button class="btn btn-ghost" title="Delete">&#10005;</button>
-        </div>
-      </div>
-
-      <div class="todo-card completed">
-        <input type="checkbox" class="todo-checkbox" checked>
-        <div class="todo-body">
-          <div class="todo-title">Read documentation</div>
-          <div class="todo-description">Go through MDN guides</div>
-          <div class="todo-meta">
-            <span class="todo-date">Due: 2026-09-08</span>
-            <span class="todo-priority medium">Medium</span>
-          </div>
-        </div>
-        <div class="todo-actions">
-          <button class="btn btn-ghost" title="Edit">&#9998;</button>
-          <button class="btn btn-ghost" title="Delete">&#10005;</button>
-        </div>
-      </div>
-
-      <div class="todo-card">
-        <input type="checkbox" class="todo-checkbox">
-        <div class="todo-body">
-          <div class="todo-title">Set up project build</div>
-          <div class="todo-description">Configure webpack and loaders</div>
-          <div class="todo-meta">
-            <span class="todo-date">Due: 2026-09-15</span>
-            <span class="todo-priority low">Low</span>
-          </div>
-        </div>
-        <div class="todo-actions">
-          <button class="btn btn-ghost" title="Edit">&#9998;</button>
-          <button class="btn btn-ghost" title="Delete">&#10005;</button>
-        </div>
-      </div>
-    </section>
-  </div>
+  <section class="todo-list-section">
+    <div class="todo-list-header">
+      <h2></h2>
+      <button class="btn btn-primary">+ Add Todo</button>
+    </div>
+    <div id="todo-list"></div>
+  </section>
 </div>
 
 <div class="modal-overlay">

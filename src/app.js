@@ -1,40 +1,59 @@
-import Todo from "./todo.js";
-import Project from "./project.js";
+import Store from "./store.js";
+import Renderer from "./render.js";
+import EventHandler from "./events.js";
+import dom from "./dom.js";
 
-const projects = [];
+export function init() {
+  const store = new Store();
+  const renderer = new Renderer({
+    projectTabs: dom.projectTabs,
+    todoList: dom.todoList,
+    todoListTitle: dom.todoListTitle,
+  });
+  const events = new EventHandler(store, renderer, dom);
 
-function createProject(name) {
-  const project = new Project(name);
-  projects.push(project);
-  return project;
-}
+  const defaultProject = store.createProject("Default");
+  const workProject = store.createProject("Work");
+  const personalProject = store.createProject("Personal");
+  store.setActiveProject(defaultProject);
 
-function deleteProject(name) {
-  const index = projects.findIndex((item) => item.name === name);
+  store.createTodo(defaultProject, {
+    title: "Learn JavaScript",
+    description: "Study modules and classes",
+    dueDate: "2026-09-10",
+    priority: "high",
+  });
+  store.createTodo(defaultProject, {
+    title: "Read documentation",
+    description: "Go through MDN guides",
+    dueDate: "2026-09-08",
+    priority: "medium",
+  });
+  store.createTodo(defaultProject, {
+    title: "Set up project build",
+    description: "Configure webpack and loaders",
+    dueDate: "2026-09-15",
+    priority: "low",
+  });
+  store.createTodo(workProject, {
+    title: "Prepare weekly report",
+    description: "Summarize completed tasks",
+    dueDate: "2026-09-12",
+    priority: "high",
+  });
+  store.createTodo(workProject, {
+    title: "Team meeting",
+    description: "Sync on Q3 goals",
+    dueDate: "2026-09-11",
+    priority: "medium",
+  });
+  store.createTodo(personalProject, {
+    title: "Grocery shopping",
+    description: "Milk, eggs, bread",
+    dueDate: "2026-09-09",
+    priority: "low",
+  });
 
-  if (index !== -1) {
-    projects.splice(index, 1);
-  }
-}
-
-function createTodo(project, title, description, dueDate, priority) {
-  const todo = new Todo(title, description, dueDate, priority);
-  project.add(todo);
-  return todo;
-}
-
-function deleteTodo(project, todo) {
-  project.remove(todo);
-}
-
-function toggleTodo(todo) {
-  todo.completed = !todo.completed;
-}
-
-export {
-    createProject,
-    deleteProject,
-    createTodo,
-    deleteTodo,
-    toggleTodo
+  events.init();
+  events.render();
 }
